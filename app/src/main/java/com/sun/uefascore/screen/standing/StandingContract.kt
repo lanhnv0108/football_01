@@ -14,6 +14,6 @@ interface StandingContract {
 
     interface Presenter : BasePresenter<View> {
 
-        fun getStandingLeague()
+        fun getStandingLeague(season : String)
     }
 }

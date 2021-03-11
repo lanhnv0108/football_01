@@ -12,6 +12,7 @@ class ParseJsonToModel {
     fun parseJsonToFixture(jsonObject: JSONObject?): Fixture? =
         jsonObject?.run {
             Fixture(
+                date = getJSONObject(FixtureEntry.FIXTURE).getString(FixtureEntry.DATE),
                 home = parseJsonToTeam(getJSONObject(FixtureEntry.TEAMS).getJSONObject(FixtureEntry.HOME)),
                 away = parseJsonToTeam(getJSONObject(FixtureEntry.TEAMS).getJSONObject(FixtureEntry.AWAY)),
                 goals = parseJsonToGoal(getJSONObject(FixtureEntry.GOALS))

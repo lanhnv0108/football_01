@@ -10,7 +10,6 @@ class StandingPresenter(private val standingRepository: StandingRepository?) :
     private var view: StandingContract.View? = null
 
     override fun onStart() {
-        getStandingLeague()
     }
 
     override fun onStop() = Unit
@@ -19,16 +18,17 @@ class StandingPresenter(private val standingRepository: StandingRepository?) :
         this.view = view
     }
 
-    override fun getStandingLeague() {
-        standingRepository?.getStandingLeague(object : OnFetchDataJsonListener<StandingLeague> {
+    override fun getStandingLeague(season: String) {
+        standingRepository?.getStandingLeague(season,
+            object : OnFetchDataJsonListener<StandingLeague> {
 
-            override fun onSuccess(data: StandingLeague) {
-                view?.onGetStandingLeagueSuccess(data)
-            }
+                override fun onSuccess(data: StandingLeague) {
+                    view?.onGetStandingLeagueSuccess(data)
+                }
 
-            override fun onError(exception: Exception?) {
-                exception?.let { view?.onError(it) }
-            }
-        })
+                override fun onError(exception: Exception?) {
+                    exception?.let { view?.onError(it) }
+                }
+            })
     }
 }

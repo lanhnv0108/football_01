@@ -24,7 +24,19 @@ class ParseJsonToModel {
             Team(
                 getInt(TeamEntry.ID),
                 getString(TeamEntry.NAME),
-                getString(TeamEntry.LOGO)
+                getString(TeamEntry.LOGO),
+                getString(TeamEntry.COUNTRY),
+                getInt(TeamEntry.FOUNDED)
+            )
+        }
+    fun parseJsonToTeamDetail(jsonObject: JSONObject?): Team? =
+        jsonObject?.getJSONObject(TeamEntry.TEAM)?.run {
+            Team(
+                getInt(TeamEntry.ID),
+                getString(TeamEntry.NAME),
+                getString(TeamEntry.LOGO),
+                getString(TeamEntry.COUNTRY),
+                getInt(TeamEntry.FOUNDED)
             )
         }
 
@@ -81,7 +93,9 @@ class ParseJsonToModel {
             Team(
                 id = getInt(TeamEntry.ID),
                 name = getString(TeamEntry.NAME),
-                logo = getString(TeamEntry.LOGO)
+                logo = getString(TeamEntry.LOGO),
+                getString(TeamEntry.COUNTRY),
+                getInt(TeamEntry.FOUNDED)
             )
         }
 

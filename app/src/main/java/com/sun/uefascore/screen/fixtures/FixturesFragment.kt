@@ -12,9 +12,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.sun.uefascore.R
 import com.sun.uefascore.data.model.Fixture
+import com.sun.uefascore.data.model.Team
 import com.sun.uefascore.data.source.repository.FixtureRepository
 import com.sun.uefascore.screen.fixtures.adapter.FixtureAdapter
 import com.sun.uefascore.screen.fixtures.adapter.FixtureAllAdapter
+import com.sun.uefascore.screen.teamdetail.TeamDetailFragment
 import com.sun.uefascore.utils.Constant
 import kotlinx.android.synthetic.main.fragment_fixtures.*
 import java.text.SimpleDateFormat
@@ -92,7 +94,11 @@ class FixturesFragment : Fragment(), ContractFixture.View, AdapterView.OnItemSel
 
     private fun onClickItem() {
         fixtureAdapter.apply {
-            registerHomeClickListener { }
+            registerHomeClickListener {
+                it.home?.id.let {
+                    TeamDetailFragment.newInstance(id)
+                }
+            }
             registerAwayClickListener { }
         }
         fixtureAllAdapter.apply {

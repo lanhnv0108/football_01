@@ -1,6 +1,7 @@
 package com.sun.uefascore.screen.fixtures
 
 import com.sun.uefascore.data.model.Fixture
+import com.sun.uefascore.data.model.Team
 import com.sun.uefascore.utils.BasePresenter
 import java.lang.Exception
 

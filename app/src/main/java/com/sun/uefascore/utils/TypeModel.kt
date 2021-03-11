@@ -7,5 +7,6 @@ enum class TypeModel {
     STANDING,
     TOP_SCORER,
     PLAYER,
-    STATISTIC
+    STATISTIC,
+    TEAM
 }

@@ -1,6 +1,7 @@
 package com.sun.uefascore.data.source.remote
 
 import com.sun.uefascore.data.model.Fixture
+import com.sun.uefascore.data.model.Team
 import com.sun.uefascore.data.source.FixtureDataSource
 import com.sun.uefascore.data.source.remote.fetchjson.GetJsonFromUrl
 import com.sun.uefascore.utils.Constant
@@ -39,6 +40,20 @@ class FixtureRemoteDataSource private constructor() :
         GetJsonFromUrl(
             listener,
             TypeModel.FIXTURE
+        ).execute(baseUrl)
+    }
+
+    override fun getTeamDetail(
+        id: Int,
+        listener: OnFetchDataJsonListener<MutableList<Team>>
+    ) {
+        val baseUrl = Constant.BASE_URL +
+                TypeFootball.TEAM.path +
+                Constant.BASE_ID +
+                id
+        GetJsonFromUrl(
+            listener,
+            TypeModel.TEAM
         ).execute(baseUrl)
     }
 

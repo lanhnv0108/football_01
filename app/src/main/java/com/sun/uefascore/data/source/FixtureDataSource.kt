@@ -13,6 +13,7 @@ interface FixtureDataSource {
             season: String,
             listener: OnFetchDataJsonListener<MutableList<Fixture>>
         )
+
         fun getAllFixture(
             season: String,
             listener: OnFetchDataJsonListener<MutableList<Fixture>>

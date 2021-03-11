@@ -11,8 +11,8 @@ class StandingRepository private constructor(private val remote: StandingDataSou
         val INSTANCE = StandingRepository(remote = StandingRemoteDataSource.instance)
     }
 
-    fun getStandingLeague(listener: OnFetchDataJsonListener<StandingLeague>) {
-        remote.getDataStandingLeague(listener)
+    fun getStandingLeague(season: String, listener: OnFetchDataJsonListener<StandingLeague>) {
+        remote.getDataStandingLeague(season, listener)
     }
 
     companion object {

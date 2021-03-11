@@ -1,5 +1,6 @@
 package com.sun.uefascore.data.source.remote.fetchjson
 
+import android.util.Log
 import com.sun.uefascore.BuildConfig
 import com.sun.uefascore.data.model.FixtureEntry
 import com.sun.uefascore.data.model.StandingGroupEntry
@@ -79,6 +80,13 @@ class ParseDataWithJson {
                         typeModel
                     )
                 }
+                TypeModel.SEASON -> {
+                    parseJsonToObject(
+                        JSONObject(jsonString).getJSONArray(Constant.RESPONSE),
+                        typeModel
+                    )
+                    Log.e("xxx", JSONObject(jsonString).getJSONArray(Constant.RESPONSE).toString())
+                }
                 else -> null
             }
         } catch (e: Exception) {
@@ -104,6 +112,9 @@ class ParseDataWithJson {
             }
             TypeModel.TOP_SCORER -> {
                 parseJsonToModel.parseJsonToTopScorer(json as JSONObject?)
+            }
+            TypeModel.SEASON -> {
+                parseJsonToModel.parseJsonSeason(json as JSONArray?)
             }
             else -> null
         }

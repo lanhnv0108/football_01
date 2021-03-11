@@ -1,6 +1,7 @@
 package com.sun.uefascore.data.source.remote.fetchjson
 
 
+import android.util.Log
 import com.sun.uefascore.data.model.*
 import org.json.JSONObject
 import com.sun.uefascore.utils.TypeModel
@@ -101,7 +102,11 @@ class ParseJsonToModel {
         jsonObject?.run {
             TopScorer(
                 player = parseJsonToPlayer(getJSONObject(TopScorerEntry.PLAYER)),
-                statistic = parseJsonToStatistic(getJSONArray(TopScorerEntry.STATISTIC).getJSONObject(0))
+                statistic = parseJsonToStatistic(
+                    getJSONArray(TopScorerEntry.STATISTIC).getJSONObject(
+                        0
+                    )
+                )
             )
         }
 
@@ -126,5 +131,11 @@ class ParseJsonToModel {
                 team = parseJsonToTeam(getJSONObject(StatisticEntry.TEAM)),
                 goals = getJSONObject(StatisticEntry.GOALS).getInt(StatisticEntry.TOTAL)
             )
+        }
+
+    fun parseJsonSeason(jsonArray: JSONArray?): Season? =
+        jsonArray?.run {
+            Log.e("xxx", jsonArray.toString()   )
+            Season(season = jsonArray as MutableList<String>)
         }
 }

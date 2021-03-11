@@ -20,7 +20,7 @@ class StandingRemoteDataSource private constructor() : StandingDataSource.Remote
         GetJsonFromUrl(
             listener,
             TypeModel.STANDING_LEAGUE
-        ).execute(stringUrl)
+        ).execute("https://api-football-v1.p.rapidapi.com/v3/standings?season=2020&league=2")
     }
 
     companion object {

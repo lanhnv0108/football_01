@@ -2,6 +2,7 @@ package com.sun.uefascore.screen.fixtures
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.sun.uefascore.R
 import com.sun.uefascore.data.model.Fixture
+import com.sun.uefascore.data.model.Season
 import com.sun.uefascore.data.source.repository.FixtureRepository
 import com.sun.uefascore.screen.fixtures.adapter.FixtureAdapter
 import com.sun.uefascore.screen.fixtures.adapter.FixtureAllAdapter
@@ -58,6 +60,7 @@ class FixturesFragment : Fragment(), ContractFixture.View, AdapterView.OnItemSel
         fixturePresenter.apply {
             setView(this@FixturesFragment)
             getFixture(dayDevice, season)
+            getSeason()
         }
     }
 
@@ -166,6 +169,10 @@ class FixturesFragment : Fragment(), ContractFixture.View, AdapterView.OnItemSel
 
     override fun onGetAllFixtureSuccess(fixtures: MutableList<Fixture>) {
         fixtureAllAdapter.updateData(fixtures)
+    }
+
+    override fun onGetSeasonSuccess(season: MutableList<Season>) {
+        Log.e("xxx" , season.toString())
     }
 
     override fun onError(exception: Exception?) {

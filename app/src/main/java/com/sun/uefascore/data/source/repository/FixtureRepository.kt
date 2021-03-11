@@ -1,6 +1,7 @@
 package com.sun.uefascore.data.source.repository
 
 import com.sun.uefascore.data.model.Fixture
+import com.sun.uefascore.data.model.Season
 import com.sun.uefascore.data.source.FixtureDataSource
 import com.sun.uefascore.data.source.remote.FixtureRemoteDataSource
 import com.sun.uefascore.data.source.remote.OnFetchDataJsonListener
@@ -22,6 +23,11 @@ class FixtureRepository private constructor(
         listener: OnFetchDataJsonListener<MutableList<Fixture>>
     ) {
         remote.getAllFixture(season, listener)
+    }
+
+    fun getSeason(listener: OnFetchDataJsonListener<MutableList<Season>>) {
+        remote.getSeason(listener)
+
     }
 
     private object Holder {

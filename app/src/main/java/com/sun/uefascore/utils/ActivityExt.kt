@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 fun AppCompatActivity.addFragment(fragment: Fragment, id: Int) {
     supportFragmentManager.inTransaction {
         add(id, fragment)
-        addToBackStack(null)
     }
 }
 

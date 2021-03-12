@@ -2,7 +2,6 @@ package com.sun.uefascore.data.source
 
 import com.sun.uefascore.data.model.Fixture
 import com.sun.uefascore.data.source.remote.OnFetchDataJsonListener
-import java.util.*
 
 interface FixtureDataSource {
 
@@ -13,9 +12,12 @@ interface FixtureDataSource {
             season: String,
             listener: OnFetchDataJsonListener<MutableList<Fixture>>
         )
+
         fun getAllFixture(
             season: String,
             listener: OnFetchDataJsonListener<MutableList<Fixture>>
         )
+
+        fun getSeason(listener: OnFetchDataJsonListener<MutableList<String>>)
     }
 }

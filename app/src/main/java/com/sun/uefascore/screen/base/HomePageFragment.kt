@@ -31,6 +31,7 @@ class HomePageFragment : Fragment() {
         initFragment()
         fragmentManager?.let {
             viewPagerContainer.adapter = ViewPagerContainerAdapter(it, fragments)
+            viewPagerContainer.offscreenPageLimit = 3
             initBottomItem()
         }
     }

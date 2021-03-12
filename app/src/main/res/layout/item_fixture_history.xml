@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/dp_14"
+    android:paddingTop="@dimen/dp_14"
+    android:paddingEnd="@dimen/dp_14">
+
+    <TextView
+        android:id="@+id/textViewDayOfMatches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_compact_bold"
+        android:textAlignment="center"
+        android:textColor="@color/color_orange_white"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardViewFixture"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:backgroundTint="@color/color_grey_light"
+        app:cardCornerRadius="@dimen/dp_10"
+        app:cardElevation="0dp"
+        app:layout_constraintDimensionRatio="351:125"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewDayOfMatches"
+        app:layout_constraintWidth_percent="1.0"
+        tools:targetApi="lollipop">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewTeamHome"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp_13"
+                android:layout_marginTop="@dimen/dp_19"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewTeamWay"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp_13"
+                android:layout_marginTop="@dimen/dp_19"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageViewTeamHome"
+                app:layout_constraintWidth_percent="0.1" />
+
+            <TextView
+                android:id="@+id/textViewNameHome"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dp_25"
+                android:fontFamily="@font/sf_compact_bold"
+                android:textAlignment="center"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintDimensionRatio="150:20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.394"
+                app:layout_constraintStart_toEndOf="@+id/imageViewTeamHome"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.22"
+                app:layout_constraintWidth_percent="0.4" />
+
+            <TextView
+                android:id="@+id/textViewNameAway"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dp_40"
+                android:fontFamily="@font/sf_compact_bold"
+                android:textAlignment="center"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintDimensionRatio="150:20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.391"
+                app:layout_constraintStart_toEndOf="@+id/imageViewTeamWay"
+                app:layout_constraintTop_toBottomOf="@+id/textViewNameHome"
+                app:layout_constraintWidth_percent="0.4" />
+
+            <TextView
+                android:id="@+id/textViewGoalsHome"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dp_25"
+                android:fontFamily="@font/sf_compact_bold"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintDimensionRatio="30:20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/textViewNameHome"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.1" />
+
+            <TextView
+                android:id="@+id/textViewGoalsAway"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/sp_32"
+                android:layout_marginEnd="4dp"
+                android:fontFamily="@font/sf_compact_bold"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintDimensionRatio="30:20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@+id/textViewNameAway"
+                app:layout_constraintTop_toBottomOf="@+id/textViewGoalsHome"
+                app:layout_constraintWidth_percent="0.1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

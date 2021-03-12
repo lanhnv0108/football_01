@@ -11,12 +11,16 @@ class StandingRemoteDataSource private constructor() : StandingDataSource.Remote
         val INSTANCE = StandingRemoteDataSource()
     }
 
-    override fun <T> getDataStandingLeague(listener: OnFetchDataJsonListener<T>) {
+    override fun <T> getDataStandingLeague(season: String, listener: OnFetchDataJsonListener<T>) {
         val stringUrl = Constant.BASE_URL +
                 STANDINGS +
                 Constant.BASE_SEASON +
+                season +
                 Constant.BASE_LEAGUE
-        GetJsonFromUrl(listener, TypeModel.STANDING_LEAGUE).execute(stringUrl)
+        GetJsonFromUrl(
+            listener,
+            TypeModel.STANDING_LEAGUE
+        ).execute(stringUrl)
     }
 
     companion object {

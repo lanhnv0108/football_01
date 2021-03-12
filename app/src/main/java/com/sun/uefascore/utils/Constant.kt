@@ -10,9 +10,11 @@ object Constant {
     const val BASE_LEAGUE_ALL = "?league=2"
     const val BASE_SEASON = "&season="
     const val DAY_FORMAT = "yyyy-MM-dd"
+    const val DAY_FORMAT_FORWARD = "yyyy/MM/dd"
     const val RESPONSE = "response"
     const val TYPE_HEADER = 1
     const val TYPE_ITEM = 2
     const val BASE_ID = "id="
     const val BASE_TEAM = "team="
+    const val SEARCH = "search="
 }

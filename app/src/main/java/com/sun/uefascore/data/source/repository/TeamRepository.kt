@@ -31,6 +31,13 @@ class TeamRepository private constructor(
         remote.getDataPlayersById(season, idTeam, listener)
     }
 
+    fun getTeamByName(
+        name: String,
+        listener: OnFetchDataJsonListener<MutableList<TeamDetail>>
+    ) {
+        remote.getDataTeamByName(name, listener)
+    }
+
     companion object {
         val instance by lazy { Holder.INSTANCE }
     }

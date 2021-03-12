@@ -12,6 +12,6 @@ interface StandingDataSource {
      *  Remote
      */
     interface Remote {
-        fun <T> getDataStandingLeague(listener: OnFetchDataJsonListener<T>)
+        fun <T> getDataStandingLeague(season: String, listener: OnFetchDataJsonListener<T>)
     }
 }

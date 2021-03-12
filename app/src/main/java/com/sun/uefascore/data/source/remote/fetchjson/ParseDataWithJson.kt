@@ -13,10 +13,8 @@ import java.io.BufferedInputStream
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
-import java.lang.StringBuilder
 import java.net.HttpURLConnection
 import java.net.URL
-import kotlin.jvm.Throws
 
 class ParseDataWithJson {
 
@@ -94,6 +92,18 @@ class ParseDataWithJson {
                         TypeModel.PLAYER_DETAIL
                     )
                 }
+                TypeModel.SEASON -> {
+                    parseJsonToListString(
+                        JSONObject(jsonString).getJSONArray(Constant.RESPONSE),
+                        TypeModel.SEASON
+                    )
+                }
+                TypeModel.TEAM_SEARCH -> {
+                    parseJsonToList(
+                        JSONObject(jsonString).getJSONArray(FixtureEntry.RESPONSE),
+                        typeModel
+                    )
+                }
                 else -> null
             }
         } catch (e: Exception) {
@@ -126,6 +136,9 @@ class ParseDataWithJson {
             TypeModel.TEAM_DETAIL -> {
                 parseJsonToModel.parseJsonToTeamDetail(json as JSONObject?)
             }
+            TypeModel.TEAM_SEARCH -> {
+                parseJsonToModel.parseJsonToTeamSearch(json as JSONObject)
+            }
             else -> null
         }
     }
@@ -138,6 +151,15 @@ class ParseDataWithJson {
             data.add(parseJsonToObject(jsonObject, typeModel))
         }
         return data.filterNotNull()
+    }
+
+    private fun parseJsonToListString(jsonArray: JSONArray?, typeModel: TypeModel): Any {
+        val data = mutableListOf<String>()
+        for (i in 0 until (jsonArray?.length() ?: 0)) {
+            val stringSeason = jsonArray?.getInt(i).toString()
+            data.add(stringSeason)
+        }
+        return data
     }
 
     @Throws(Exception::class)

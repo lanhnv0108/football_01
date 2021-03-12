@@ -43,6 +43,17 @@ class TeamRemoteDataSource private constructor() : TeamDataSource.Remote {
         GetJsonFromUrl(listener, TypeModel.PLAYER_DETAIL).execute(stringUrl)
     }
 
+    override fun <T> getDataTeamByName(
+        name: String,
+        listener: OnFetchDataJsonListener<T>
+    ) {
+        val baseUrl = Constant.BASE_URL +
+                TEAM +
+                Constant.SEARCH +
+                name
+        GetJsonFromUrl(listener, TypeModel.TEAM_SEARCH).execute(baseUrl)
+    }
+
     companion object {
 
         private const val PLAYER = "players?"

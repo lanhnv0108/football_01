@@ -42,6 +42,16 @@ class FixtureRemoteDataSource private constructor() :
         ).execute(baseUrl)
     }
 
+    override fun getSeason(listener: OnFetchDataJsonListener<MutableList<String>>) {
+        val baseUrl = Constant.BASE_URL +
+                TypeFootball.LEAGUE.path +
+                TypeFootball.SEASON.path
+        GetJsonFromUrl(
+            listener,
+            TypeModel.SEASON
+        ).execute(baseUrl)
+    }
+
     private object Holder {
         val INSTANCE = FixtureRemoteDataSource()
     }

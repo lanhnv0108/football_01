@@ -2,9 +2,9 @@ package com.sun.uefascore.data.source.remote.fetchjson
 
 
 import com.sun.uefascore.data.model.*
-import org.json.JSONObject
 import com.sun.uefascore.utils.TypeModel
 import org.json.JSONArray
+import org.json.JSONObject
 
 @Suppress("UNCHECKED_CAST")
 class ParseJsonToModel {
@@ -12,6 +12,7 @@ class ParseJsonToModel {
     fun parseJsonToFixture(jsonObject: JSONObject?): Fixture? =
         jsonObject?.run {
             Fixture(
+                date = getJSONObject(FixtureEntry.FIXTURE).getString(FixtureEntry.DATE),
                 home = parseJsonToTeam(getJSONObject(FixtureEntry.TEAMS).getJSONObject(FixtureEntry.HOME)),
                 away = parseJsonToTeam(getJSONObject(FixtureEntry.TEAMS).getJSONObject(FixtureEntry.AWAY)),
                 goals = parseJsonToGoal(getJSONObject(FixtureEntry.GOALS))
@@ -151,6 +152,17 @@ class ParseJsonToModel {
                     getJSONArray(PlayerDetailEntry.STATISTIC)
                         .getJSONObject(0)
                 )
+            )
+        }
+
+    fun parseJsonToTeamSearch(jsonObject: JSONObject?): TeamDetail? =
+        jsonObject?.run {
+            TeamDetail(
+                id = getJSONObject(TeamDetailEntry.TEAM).getInt(TeamDetailEntry.ID),
+                name = getJSONObject(TeamDetailEntry.TEAM).getString(TeamDetailEntry.NAME),
+                country = getJSONObject(TeamDetailEntry.TEAM).getString(TeamDetailEntry.COUNTRY),
+                founded = 1,
+                logo = getJSONObject(TeamDetailEntry.TEAM).getString(TeamDetailEntry.LOGO)
             )
         }
 }

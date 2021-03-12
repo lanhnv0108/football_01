@@ -24,5 +24,10 @@ interface TeamDataSource {
             idTeam: String,
             listener: OnFetchDataJsonListener<MutableList<T>>
         )
+
+        fun <T> getDataTeamByName(
+            name: String,
+            listener: OnFetchDataJsonListener<T>
+        )
     }
 }

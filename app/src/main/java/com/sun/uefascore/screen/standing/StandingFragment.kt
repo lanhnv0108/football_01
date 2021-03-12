@@ -19,6 +19,7 @@ class StandingFragment : Fragment(),
     StandingContract.View,
     OnItemRecyclerViewClickListener<Team> {
 
+    private var season = ""
     private val presenter by lazy {
         StandingPresenter(StandingRepository.instance)
     }
@@ -59,7 +60,7 @@ class StandingFragment : Fragment(),
     private fun initData() {
         presenter.run {
             setView(this@StandingFragment)
-            getStandingLeague()
+            getStandingLeague(season)
         }
     }
 
